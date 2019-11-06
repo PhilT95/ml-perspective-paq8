@@ -38,6 +38,32 @@
 %\date{} 
 %\subject{} 
 
+% Inserts Section Introduction Slide
+\AtBeginSection[] {
+	\begin{frame}
+		\frametitle{\insertsectionhead}
+		\tableofcontents[currentsection,hideothersubsections]
+	\end{frame}
+}
+
+
+
+% Inserts Section header automatically
+\addtobeamertemplate{frametitle}{
+   \let\insertframetitle\insertsectionhead}{}
+%\addtobeamertemplate{frametitle}{
+ %  \let\insertframesubtitle\insertsubsectionhead}{}
+
+
+\makeatletter
+  \CheckCommand*\beamer@checkframetitle{\@ifnextchar\bgroup\beamer@inlineframetitle{}}
+  \renewcommand*\beamer@checkframetitle{\global\let\beamer@frametitle\relax\@ifnextchar\bgroup\beamer@inlineframetitle{}}
+\makeatother
+
+
+
+
+
 \colorlet{beamer@blendedblue}{ForestGreen}
 \begin{document}
 
@@ -45,7 +71,7 @@
 \titlepage
 \end{frame}
 
-\begin{frame}{Überblick}
+\begin{frame}{Overview}
 \tableofcontents
 \end{frame}
 
@@ -53,7 +79,7 @@
 \section{Introduction to PAQ}
 
 
-\begin{frame}{Introduction to PAQ}
+\begin{frame}
 	\begin{block}{What is PAQ8}
 			\begin{itemize}
 				\item What is it?
@@ -63,7 +89,7 @@
 	\end{block}
 \end{frame}
 
-\begin{frame}{Introduction to PAQ}
+\begin{frame}
 	\begin{exampleblock}{Matt Mahoney}<1->
 	\begin{minipage}[b]{0.70\linewidth}
 		\begin{itemize}
@@ -87,7 +113,7 @@
 	\end{alertblock}
 \end{frame}
 
-\begin{frame}{Introduction to PAQ}
+\begin{frame}
 	\begin{exampleblock}{Principles of PAQ}
 	
 		\begin{itemize}
@@ -100,21 +126,34 @@
 
 \end{frame}
 
-\begin{frame}{Introduction to PAQ}
+\begin{frame}
 	\begin{block}{Exemplary Predictors}
 	\visible<1->{The order-$n$ context predictor
 		\begin{itemize}
-			\item Test
-		\end{itemize}
-		}
-			
-	\visible<2->{The sparse context predictor
+			\item Examines the last $n$ bits and counts the 1's and 0's
+			\item Estimates probability whether next bit is 1 or 0 like PPM
+		\end{itemize}	
+		}		
+	\visible<2->{
+	The sparse context predictor
 		\begin{itemize}
-			\item 	Test
+			\item 	Context consists of a specific amount of non-contiguous bytes before the current bit 
 		\end{itemize}
 		}
 	\end{block}
 	
+	\begin{exampleblock}{PAQ \& Predictors}<3->
+		\begin{itemize}
+			\item 	Predictors in PAQ are used simultaneously
+			\item Result with the most usability is chosen
+		\end{itemize}
+
+	\end{exampleblock}
+	
+\end{frame}
+
+\begin{frame}
+
 \end{frame}
 
 
