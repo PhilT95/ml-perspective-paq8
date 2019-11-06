@@ -48,17 +48,6 @@
 
 
 
-% Inserts Section header automatically
-\addtobeamertemplate{frametitle}{
-   \let\insertframetitle\insertsectionhead}{}
-%\addtobeamertemplate{frametitle}{
- %  \let\insertframesubtitle\insertsubsectionhead}{}
-
-
-\makeatletter
-  \CheckCommand*\beamer@checkframetitle{\@ifnextchar\bgroup\beamer@inlineframetitle{}}
-  \renewcommand*\beamer@checkframetitle{\global\let\beamer@frametitle\relax\@ifnextchar\bgroup\beamer@inlineframetitle{}}
-\makeatother
 
 
 
@@ -67,9 +56,12 @@
 \colorlet{beamer@blendedblue}{ForestGreen}
 \begin{document}
 
+
+
 \begin{frame}
 \titlepage
 \end{frame}
+
 
 \begin{frame}{Overview}
 \tableofcontents
@@ -79,7 +71,7 @@
 \section{Introduction to PAQ}
 
 
-\begin{frame}
+\begin{frame}{Introduction to PAQ}
 	\begin{block}{What is PAQ8}
 			\begin{itemize}
 				\item What is it?
@@ -89,7 +81,7 @@
 	\end{block}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Introduction to PAQ}
 	\begin{exampleblock}{Matt Mahoney}<1->
 	\begin{minipage}[b]{0.70\linewidth}
 		\begin{itemize}
@@ -113,7 +105,7 @@
 	\end{alertblock}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Introduction to PAQ}
 	\begin{exampleblock}{Principles of PAQ}
 	
 		\begin{itemize}
@@ -126,7 +118,7 @@
 
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Introduction to PAQ}
 	\begin{block}{Exemplary Predictors}
 	\visible<1->{The order-$n$ context predictor
 		\begin{itemize}
@@ -152,7 +144,7 @@
 	
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Introduction to PAQ}
 
 \end{frame}
 
