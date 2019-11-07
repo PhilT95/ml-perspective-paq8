@@ -119,14 +119,14 @@
 \end{frame}
 
 \begin{frame}{Introduction to PAQ}
-	\begin{block}{Exemplary Predictors}
-	\visible<1->{The order-$n$ context predictor
+	\begin{block}{Exemplary Predictors}<1->
+	\visible<2->{The order-$n$ context predictor
 		\begin{itemize}
 			\item Examines the last $n$ bits and counts the 1's and 0's
 			\item Estimates probability whether next bit is 1 or 0 like PPM
 		\end{itemize}	
 		}		
-	\visible<2->{
+	\visible<3->{
 	The sparse context predictor
 		\begin{itemize}
 			\item 	Context consists of a specific amount of non-contiguous bytes before the current bit 
@@ -136,20 +136,33 @@
 	
 	\begin{exampleblock}{PAQ \& Predictors}<3->
 		\begin{itemize}
-			\item 	Predictors in PAQ are used simultaneously
-			\item Result with the most usability is chosen
+			\item PAQ encoder looks at the beginning of input file for deciding which predictors are used
+			\item Ways to combine predictions change through with the different versions
 		\end{itemize}
 
 	\end{exampleblock}
 	
 \end{frame}
 
-\begin{frame}{Introduction to PAQ}
-
+\section{PAQ8L}
+\begin{frame}{PAQ8L}
+	\begin{exampleblock}{PAQ8 - What's new?}<1->
+		\begin{itemize}
+			\item Predictors don't produce a pair of bit counts anymore\\
+			$\hookrightarrow$ those counts get weighted and normalized into the interval $[0,1]\subset\mathbb{R}$
+			\item Instead  each predictor already outputs a probability
+			\item \textit{paq8l} is a stable version of paq8, released by Matt Mahoney
+		\end{itemize}
+	\end{exampleblock}
+	
+		\begin{alertblock}{PAQ8L - Machine Learning Perspective}<2->
+		\begin{itemize}
+			\item paq8l is the version of PAQ used by \textit{Byron Knoll \& Nando de Freitas}
+			\item They try to show the possibilities of PAQ beyond data compression
+		\end{itemize}
+	\end{alertblock}
 \end{frame}
 
-
-\section{PAQ8}
 \subsection{Architecture}
 \subsection{Model Mixer}
 \subsection{Mixture of Experts}
