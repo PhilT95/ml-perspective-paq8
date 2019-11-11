@@ -30,7 +30,7 @@
 \end{flushright}}
 \setbeamertemplate{navigation symbols}{}
 \author{Presentation by Phil Trommer}
-\title{A Machine Learning Perspective on Predictive Coding with PAQ}
+\title{A Machine Learning Perspective on Predictive Coding with PAQ by Knoll \& de Freitas}
 %\setbeamercovered{transparent} 
 %\setbeamertemplate{navigation symbols}{} 
 %\logo{} 
@@ -165,17 +165,45 @@
 
 \subsection{Architecture}
 \begin{frame}{Architecture}
+
+% Put Graphic of Architecture here
+
 	\begin{exampleblock}{Architecture of PAQ8}<1->
-	
+		\begin{itemize}
+			\item Uses weighted combination of predictions from Large number of models
+			\item Allows no-contiguous context matches
+			\item paq8l uses \textbf{552} prediciton models
+			\item Combines the output of them into a single one\\
+			$\hookrightarrow$ Passes this through an \textit{adaptive probability map} (APM) before using the arithmetic coder
+		\end{itemize}
 	\end{exampleblock}
-	
-	\begin{block}{Example}<2->
-	\end{block}
 
 \end{frame}
 
 
 \subsection{Model Mixer}
+\begin{frame}{Model Mixer}
+	\begin{exampleblock}{Model Mixer of paq8l}<1->
+		\begin{itemize}
+			\item Resembles a neural network with one hidden layer
+			\item Hidden layer is between input and output layer\\
+			$\hookrightarrow$ Artificial neurons take a set of weighted inputs\\
+			Output is produced through activation function
+		\end{itemize}
+	\end{exampleblock}
+	
+	\begin{block}{Differences between paq8l and neural networks}<2->
+		\begin{enumerate}
+			\item Weights for first and second layers are learned online and independently for all nodes:
+			\begin{itemize}
+				\item Each node trained separately 
+				\item reduces predictive cross-entropy error (unlike back propagation)
+			\end{itemize}	
+			\item Hidden nodes are partitioned into seven sets		 
+		\end{enumerate}
+	\end{block}
+\end{frame}
+
 \subsection{Mixture of Experts}
 \subsection{Updating \& Filtering}
 \section{Applications for PAQ8}
