@@ -1,0 +1,11 @@
+﻿\begin{tikzpicture}[]
+	\node[rectangle,draw,minimum height=2cm,text width=2cm] (predModel) at (0,0) {prediction models};
+	\node[rectangle,draw,text width=2cm,minimum height=2cm] (modelMix) at (4,0) {model \\ mixing};
+	\node[rectangle,draw,text width=2cm,minimum height=2cm] (apm) at (8,0) {adaptive probability maps};
+	\node[rectangle,draw,text width=2cm,minimum height=2cm] (arithCoding) at (12,0) {arithmetic coding};
+
+\draw[->,thick](predModel) -- (modelMix);
+\draw[->,thick](modelMix) -- (apm);
+\draw[->,thick](apm) -- (arithCoding);
+
+\end{tikzpicture}

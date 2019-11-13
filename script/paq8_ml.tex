@@ -11,6 +11,7 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{graphicx}
+\usepackage{tikz}
 
 
 
@@ -168,6 +169,8 @@
 
 % Put Graphic of Architecture here
 
+	
+
 	\begin{exampleblock}{Architecture of PAQ8}<1->
 		\begin{itemize}
 			\item Uses weighted combination of predictions from Large number of models
@@ -177,6 +180,19 @@
 			$\hookrightarrow$ Passes this through an \textit{adaptive probability map} (APM) before using the arithmetic coder
 		\end{itemize}
 	\end{exampleblock}
+	\hfill
+	
+	\visible<2->{
+	\begin{figure}[H]
+		\centering
+		\resizebox{0.95\textwidth}{!}{
+			\input{files/paq8_architecture.pgf}
+		}
+		\caption{PAQ8 Architecture}
+	\end{figure}
+	}
+
+	
 
 \end{frame}
 
