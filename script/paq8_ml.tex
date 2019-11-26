@@ -48,7 +48,7 @@
 }
 
 
-
+\newcommand{\defText}[1]{\textcolor{Red}{#1}}
 
 
 
@@ -167,9 +167,6 @@
 \subsection{Architecture}
 \begin{frame}{Architecture}
 
-% Put Graphic of Architecture here
-
-	
 
 	\begin{exampleblock}{Architecture of PAQ8}<1->
 		\begin{itemize}
@@ -198,6 +195,47 @@
 
 
 \subsection{Model Mixer}
+\begin{frame}{Neural Network}
+	\begin{alertblock}{Layers of a neural Network}<1->
+		A layer, in the context of a neural network, is a \defText{group of neurons}, which take an \defText{input} and provide and \defText{output}. 
+	\end{alertblock}
+	
+
+	
+	
+	%Change picture to just a neuron
+	\visible<3->{
+	\begin{figure}[H]
+		\centering
+		\resizebox{0.35\textwidth}{!}{
+			\input{files/neural-network_architecture.pgf}
+		}
+		\caption{Neural network architecture}
+	\end{figure}
+	}
+
+\end{frame}
+
+\begin{frame}{Neural Network}
+		
+	\begin{alertblock}{Neurons of a neural Network}<1->
+	A \defText{neuron} takes one or more \defText{inputs} and gives an \defText{output}. \\
+	Within the topic of machine learning, the neuron can be understood as a \defText{function}.
+	\end{alertblock}
+
+	\visible<2->{
+		\begin{figure}[H]
+			\centering
+			\resizebox{0.35\textwidth}{!}{
+				\input{files/neural-network_architecture.pgf}
+			}
+			\caption{Neural network architecture}
+		\end{figure}
+	}	
+	
+\end{frame}
+
+
 \begin{frame}{Model Mixer}
 	\begin{exampleblock}{Model Mixer of paq8l}<1->
 		\begin{itemize}
