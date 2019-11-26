@@ -1,0 +1,22 @@
+﻿\begin{tikzpicture}[]
+	\node[circle,draw,minimum size=1cm] (n) at (2,1.5) {\LARGE$N$};
+	\node[minimum size=1cm] (x1) at (0,3) {\LARGE$x_1$};
+	\node[minimum size=1cm] (x2) at (0,2) {\LARGE$x_2$};
+	\node[minimum size=1cm] (xdot) at (0,1) {\LARGE$...$};
+	\node[minimum size=1cm] (xn) at (0,0) {\LARGE$x_n$};
+	\node[minimum size=1cm] (y) at (4,1.5) {\LARGE$y$};
+
+\draw [->,thick](x1) -- (n);
+\draw[->,thick] (x2) -- (n);
+\draw[->,thick] (xdot) -- (n);
+\draw[->,thick] (xn) -- (n);
+\draw[->,thick] (n) -- (y);
+	
+
+
+
+
+
+
+
+\end{tikzpicture}

@@ -1,10 +1,68 @@
 ﻿\begin{tikzpicture}[]
-	\node[circle,draw] (a1) at (0,0) {$A_1$};
-	\node[circle,draw] (a2) at (1.5,0) {$A_2$};
-	\node[circle ,draw] (adot) at (3,0) {$...$};
-	\node[circle,draw] (an) at (4.5,0) {$A_n$};
-	\node[circle,draw] (b1) at (0,-2) {$B_1$};
 
-\draw [->, thick](a1) -- (b1);
+	\node[minimum size=1cm] (x1) at (-3,6) {$x_1$};
+	\node[minimum size=1cm] (x2) at (-3,4) {$x_2$};
+	\node[minimum size=1cm] (xdot) at (-3,2) {$...$};
+	\node[minimum size=1cm] (xn) at (-3,0) {$x_n$};
+	
+
+	\node[circle,draw,minimum size=1cm] (a1) at (0,6) {$A_1$};
+	\node[circle,draw,minimum size=1cm] (a2) at (0,4) {$A_2$};
+	\node[circle ,draw,minimum size=1cm] (adot) at (0,2) {$...$};
+	\node[circle,draw,minimum size=1cm] (an) at (0,0) {$A_n$};
+
+
+	\node[rectangle,fill] (ab) at (1.5,3) {};
+
+	\node[circle,draw,minimum size=1cm] (b1) at (3,6) {$B_1$};
+	\node[circle,draw,minimum size=1cm] (b2) at (3,4) {$B_2$};
+	\node[circle,draw,minimum size=1cm] (bdot) at (3,2) {$...$};
+	\node[circle,draw,minimum size=1cm] (bn) at (3,0) {$B_k$};
+
+	\node[rectangle,fill] (bdots) at (4.5,3) {};
+
+	\node[circle,draw,minimum size=1cm] (dots) at (6,3) {$...$};
+
+	\node[rectangle,fill] (dotsn) at (7.5,3) {};
+
+	\node[circle,draw,minimum size=1cm] (m1) at (9,6) {$M_1$};
+	\node[circle,draw,minimum size=1cm] (m2) at (9,4) {$M_2$};
+	\node[circle,draw,minimum size=1cm] (mdot) at (9,2) {$...$};
+	\node[circle,draw,minimum size=1cm] (mn) at (9,0) {$M_l$};
+
+	\node[minimum size=1cm] (y1) at (12,6) {$y_1$};
+	\node[minimum size=1cm] (y2) at (12,4) {$y_2$};
+	\node[minimum size=1cm] (ydot) at (12,2) {$...$};
+	\node[minimum size=1cm] (yn) at (12,0) {$y_{l}$};
+
+\draw [->, thick](x1) -- (a1);
+\draw [->, thick](x2) -- (a2);
+\draw [->, thick](xdot) -- (adot);
+\draw [->, thick](xn) -- (an);
+
+
+\draw [->, thick](a1) -- (ab)--(b1);
+\draw [->, thick](a2) -- (ab)-- (b2);
+\draw [->, thick](adot) --(ab)-- (bdot);
+\draw [->, thick](an) -- (ab)--(bn);
+\draw(-0.6cm,-0.6cm) rectangle (0.6,6.6);
+\node[anchor=north] (layerA) at (0,-0.6) {\Large{Layer $A$}};
+\draw [->, thick](b1) -- (bdots)--(dots);
+\draw [->, thick](b2) -- (bdots)--(dots);
+\draw [->, thick](bdot) -- (bdots)--(dots);
+\draw [->, thick](bn) -- (bdots)--(dots);
+\draw(2.4cm,-0.6cm)rectangle(3.6,6.6);
+\node[anchor=north] (layerB) at (3,-0.6) {\Large{Layer $B$}};
+\draw [->, thick](dots) -- (dotsn)--(m1);
+\draw [->, thick](dots) -- (dotsn)--(m2);
+\draw [->, thick](dots) -- (dotsn)--(mdot);
+\draw [->, thick](dots) -- (dotsn)--(mn);
+\draw(8.4cm,-0.6cm)rectangle(9.6,6.6);
+\node[anchor=north] (layerC) at (9,-0.6) {\Large{Layer $M$}};
+
+\draw [->, thick](m1) -- (y1);
+\draw [->, thick](m2) -- (y2);
+\draw [->, thick](mdot) -- (ydot);
+\draw [->, thick](mn) -- (yn);
 
 \end{tikzpicture}

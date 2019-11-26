@@ -193,32 +193,10 @@
 
 \end{frame}
 
-
-\subsection{Model Mixer}
-\begin{frame}{Neural Network}
-	\begin{alertblock}{Layers of a neural Network}<1->
-		A layer, in the context of a neural network, is a \defText{group of neurons}, which take an \defText{input} and provide and \defText{output}. 
-	\end{alertblock}
-	
-
-	
-	
-	%Change picture to just a neuron
-	\visible<3->{
-	\begin{figure}[H]
-		\centering
-		\resizebox{0.35\textwidth}{!}{
-			\input{files/neural-network_architecture.pgf}
-		}
-		\caption{Neural network architecture}
-	\end{figure}
-	}
-
-\end{frame}
-
-\begin{frame}{Neural Network}
+\subsection{Neural Network}
+\begin{frame}{Neural network}
 		
-	\begin{alertblock}{Neurons of a neural Network}<1->
+	\begin{alertblock}{Neurons of a neural network}<1->
 	A \defText{neuron} takes one or more \defText{inputs} and gives an \defText{output}. \\
 	Within the topic of machine learning, the neuron can be understood as a \defText{function}.
 	\end{alertblock}
@@ -226,16 +204,74 @@
 	\visible<2->{
 		\begin{figure}[H]
 			\centering
-			\resizebox{0.35\textwidth}{!}{
-				\input{files/neural-network_architecture.pgf}
+			\resizebox{0.275\textwidth}{!}{
+				\input{files/neuron.pgf}
 			}
 			\caption{Neural network architecture}
 		\end{figure}
-	}	
+	}
+	
+
+		
 	
 \end{frame}
 
 
+
+
+\begin{frame}{Neural network}
+
+	\begin{alertblock}{Layer in neural network}<1->
+			A layer is a group of neurons.
+	\end{alertblock}	
+	
+		
+		
+	\visible<2->{
+	\begin{alertblock}{A neural network}
+	Neural networks is defined by its layers:
+	\begin{itemize}
+		\item 1 input layer with $n$ inputs where $n\in\mathbb{N}\setminus\{0\}$
+		\item 1 output layer with $k$ inputs where $k\in\mathbb{N}\setminus\{0\}$
+		\item $M$ layers between input and output layer with $M\in\mathbb{N}$,
+		\item Layers can consist of different amounts of neurons (at least one)
+	\end{itemize}
+	\end{alertblock}	
+	
+	}	
+	
+	\visible<3->{
+	
+	\begin{block}{General structure of neural network}
+		Let it be an generic neural network with:	
+		\begin{itemize}
+			\item $x_1,...x_n$ inputs and $l_1,...,y_k$ outputs
+			\item There are $M$ different layers between input and output
+		\end{itemize}
+	\end{block}
+	}	
+
+	
+	
+
+
+\end{frame}
+
+\begin{frame}{Neural network}
+		%Change picture to just a neuron
+	\visible<1->{
+	\begin{figure}[H]
+		\centering
+		\resizebox{!}{5cm}{
+			\input{files/neural-network_architecture.pgf}
+		}
+		\caption{Neural network architecture}
+	\end{figure}
+	}
+\end{frame}
+
+
+\subsection{Model Mixer}
 \begin{frame}{Model Mixer}
 	\begin{exampleblock}{Model Mixer of paq8l}<1->
 		\begin{itemize}
