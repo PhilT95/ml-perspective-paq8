@@ -113,36 +113,54 @@
 			\item Modeling combined with adaptive arithmetic encoding
 			\item Open to additions and improvements
 			\item Improves perfomance of PPM by including several predictors (i.e. models of data) 
-			\item Combines the result of the predictors 
+			\item Combines the result of the predictors
 		\end{itemize}
 	\end{exampleblock}
 
 \end{frame}
 
 \begin{frame}{Introduction to PAQ}
-	\begin{block}{Exemplary Predictors}<1->
-	\visible<2->{The order-$n$ context predictor
+	\begin{block}{Exemplary Predictors}
+	\visible<1->{The order-$n$ context predictor
 		\begin{itemize}
 			\item Examines the last $n$ bits and counts the 1's and 0's
 			\item Estimates probability whether next bit is 1 or 0 like PPM
 		\end{itemize}	
 		}		
-	\visible<3->{
+	\visible<2->{
 	The sparse context predictor
 		\begin{itemize}
-			\item 	Context consists of a specific amount of non-contiguous bytes before the current bit 
+			\item 	Context consists of a specific amount of non-contiguous bytes before the current bit
+			\item Useful for some binary files 
 		\end{itemize}
 		}
+		
+	\visible<3->{
+	Whole word order-$n$ context
+		\begin{itemize}
+			\item Context is the latest $n$ whole words
+			\item Non-alphabetical characters are ignored and upper- or lower case letters are viewed as the same
+			\item Very useful for text files
+		\end{itemize}
+	}
 	\end{block}
 	
-	\begin{exampleblock}{PAQ \& Predictors}<3->
+
+	
+\end{frame}
+
+
+\begin{frame}{Introduction to PAQ}
+		\begin{exampleblock}{PAQ \& Predictors}<1->
 		\begin{itemize}
 			\item PAQ encoder looks at the beginning of input file for deciding which predictors are used
 			\item Ways to combine predictions change through with the different versions
+			\item Each predictor outputs a pair of bit counts $\left(n_0 , n_1\right)$ 
+			\item Counts of each predictor are weighted with context length
+		 	\item Those counts get summed up 
 		\end{itemize}
 
 	\end{exampleblock}
-	
 \end{frame}
 
 \section{PAQ8L}
@@ -231,10 +249,10 @@
 	\begin{alertblock}{A neural network}
 	Neural networks is defined by its layers:
 	\begin{itemize}
-		\item 1 input layer with $n$ inputs where $n\in\mathbb{N}\setminus\{0\}$
-		\item 1 output layer with $k$ inputs where $k\in\mathbb{N}\setminus\{0\}$
-		\item $M$ layers between input and output layer with $M\in\mathbb{N}$,
-		\item Layers can consist of different amounts of neurons (at least one)
+		\item 1 input layer with $n$ inputs 
+		\item 1 output layer with $k$ inputs 
+		\item $M$ layers between input and output layer 
+		\item Layers can consist of different amounts of neurons
 	\end{itemize}
 	\end{alertblock}	
 	
@@ -245,7 +263,7 @@
 	\begin{block}{General structure of neural network}
 		Let it be an generic neural network with:	
 		\begin{itemize}
-			\item $x_1,...x_n$ inputs and $l_1,...,y_k$ outputs
+			\item $x_1,...x_n$ inputs and $y_1,...,y_k$ outputs
 			\item There are $M$ different layers between input and output
 		\end{itemize}
 	\end{block}
