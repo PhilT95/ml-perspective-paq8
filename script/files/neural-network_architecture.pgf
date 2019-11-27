@@ -17,7 +17,7 @@
 	\node[circle,draw,minimum size=1cm] (b1) at (3,6) {$B_1$};
 	\node[circle,draw,minimum size=1cm] (b2) at (3,4) {$B_2$};
 	\node[circle,draw,minimum size=1cm] (bdot) at (3,2) {$...$};
-	\node[circle,draw,minimum size=1cm] (bn) at (3,0) {$B_k$};
+	\node[circle,draw,minimum size=1cm] (bn) at (3,0) {$B_i$};
 
 	\node[rectangle,fill] (bdots) at (4.5,3) {};
 
@@ -28,12 +28,12 @@
 	\node[circle,draw,minimum size=1cm] (m1) at (9,6) {$M_1$};
 	\node[circle,draw,minimum size=1cm] (m2) at (9,4) {$M_2$};
 	\node[circle,draw,minimum size=1cm] (mdot) at (9,2) {$...$};
-	\node[circle,draw,minimum size=1cm] (mn) at (9,0) {$M_l$};
+	\node[circle,draw,minimum size=1cm] (mn) at (9,0) {$M_k$};
 
 	\node[minimum size=1cm] (y1) at (12,6) {$y_1$};
 	\node[minimum size=1cm] (y2) at (12,4) {$y_2$};
 	\node[minimum size=1cm] (ydot) at (12,2) {$...$};
-	\node[minimum size=1cm] (yn) at (12,0) {$y_{l}$};
+	\node[minimum size=1cm] (yn) at (12,0) {$y_{k}$};
 
 \draw [->, thick](x1) -- (a1);
 \draw [->, thick](x2) -- (a2);
