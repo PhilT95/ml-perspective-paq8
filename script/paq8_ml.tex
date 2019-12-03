@@ -296,9 +296,8 @@
 	\begin{exampleblock}{Model Mixer of paq8l}<1->
 		\begin{itemize}
 			\item Resembles a neural network with one hidden layer
-			\item Hidden layer is between input and output layer\\
-			$\hookrightarrow$ Artificial neurons take a set of weighted inputs\\
-			Output is produced through activation function
+			\item One hidden layer is between input and output layer
+			\item Subtle differences from a standard neural network
 		\end{itemize}
 	\end{exampleblock}
 	
@@ -314,9 +313,93 @@
 	\end{block}
 \end{frame}
 
-\subsection{Mixture of Experts}
-\subsection{Updating \& Filtering}
+\begin{frame}{Model Mixer}
+	\begin{exampleblock}{Hidden Node Partitioning}
+		\begin{itemize}
+			\item For every bit of data 1 node from each set
+			\item Only edges of selected nodes are updated
+			\item $552\times 7 = 3,864$ weights updated per bit
+		\end{itemize}
+	\end{exampleblock}
+
+		\visible<1->{
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=0.4]{files/model-mixer_architecture.png}
+			\caption{Model Mixer architecture  (Graphic by Knoll \& De Freitas)}
+		\end{figure}
+	}
+\end{frame}
+
+\begin{frame}{Model Mixer}
+	\begin{block}{Node selection}
+		\begin{itemize}
+			\item Sets 1,2,4 and 6 choose node based on single byte in context\\
+			$\hookrightarrow$ 256 nodes per set
+			\item Sets 3 and 7 use combination of several bytes
+			\item Depending on the context, a specific node is selected
+		\end{itemize}
+	\end{block}
+	
+	\visible<2->{
+	\begin{exampleblock}{Mixtures of Experts}
+		\begin{itemize}
+			\item Technique published by \textit{Jacobs et al.}
+			\item Used for neural network training
+			\item Requires a gating network to select expert model
+		\end{itemize}
+	\end{exampleblock}
+	}
+\end{frame}
+
+
+\subsection{Adaptive Probability Maps}
+\begin{frame}{Adaptive Probability Maps}
+	\begin{alertblock}{Definition APM}
+		\begin{itemize}
+			\item Takes prediction from model mixer
+			\item is an two dimensional table and low order context as input
+			\item Outputs a new prediction on non-linear scale
+			\item Table entries adjusted after each bit is coded
+		\end{itemize}
+	\end{alertblock}
+
+\end{frame}
+
 \section{Applications for PAQ8}
+\begin{frame}{Application for PAQ8}
+	\begin{block}{What applications?}
+	PAQ8 is useful even beside compressing files.
+	\begin{itemize}
+		\item Adaptive Text Prediction
+		\item Text categorization
+		\item Shape recognition
+		\item Lossy compression (i.e. JPEG)
+	\end{itemize}
+	\end{block}
+	\visible<2->{
+		\begin{exampleblock}{Adaptive Text Prediction}
+			\begin{itemize}
+				\item PAQ8 can be used to find string $x$ for some training string $y$
+				\item Can be set to work in speech recognition and text prediction (for typing)
+			\end{itemize}
+		\end{exampleblock}
+	}
+
+\end{frame}
+
+\begin{frame}{Text categorization}
+	% Table of comparisson
+\end{frame}
+
+\begin{frame}{Shape recognition}
+
+\end{frame}
+
+\begin{frame}{Lossy compression}
+
+\end{frame}
+
 \section{References}
 
 
