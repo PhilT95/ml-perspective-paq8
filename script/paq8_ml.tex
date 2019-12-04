@@ -336,6 +336,7 @@
 		\begin{itemize}
 			\item Sets 1,2,4 and 6 choose node based on single byte in context\\
 			$\hookrightarrow$ 256 nodes per set
+			\item Set 1 has additional byte $\rightarrow$ 264 nodes
 			\item Sets 3 and 7 use combination of several bytes
 			\item Depending on the context, a specific node is selected
 		\end{itemize}
@@ -367,7 +368,28 @@
 \end{frame}
 
 \section{Applications for PAQ8}
-\begin{frame}{Application for PAQ8}
+\begin{frame}{Classification}
+	\begin{exampleblock}{Classification as the basic principle}
+		\begin{itemize}
+			\item Compression based classification discovered by researches (Marton et al., 2005)
+			\item Standard procedures for compression based classification exists
+			\item SMDL, AMDL \&  BCN 
+		\end{itemize}
+	\end{exampleblock}
+	
+	\visible<2->{
+	\begin{alertblock}{Classification procedures}
+		\begin{itemize}
+			\item \textbf{SMDL} $\rightarrow$ uses differences between test dictionary and result dictionary
+			\item \textbf{AMDL} $\rightarrow$ uses difference between compressed file sizes (training files \& test file)
+			\item \textbf{BCN} $\rightarrow$ uses difference between compressed file sizes (training file \& test file)
+		\end{itemize}
+	\end{alertblock}	
+	} 
+
+\end{frame}
+
+\begin{frame}{Applications for PAQ8}
 	\begin{block}{What applications?}
 	PAQ8 is useful even beside compressing files.
 	\begin{itemize}
@@ -376,6 +398,7 @@
 		\item Shape recognition
 		\item Lossy compression (i.e. JPEG)
 	\end{itemize}
+	Results are calculated by an module called \textit{PAQclass}
 	\end{block}
 	\visible<2->{
 		\begin{exampleblock}{Adaptive Text Prediction}
@@ -389,20 +412,71 @@
 \end{frame}
 
 \begin{frame}{Text categorization}
-	% Table of comparisson
+		\visible<1->{
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=0.4]{files/text-categorization.png}
+			\caption{Text categorization comparison  (Graphic by Knoll \& De Freitas)}
+		\end{figure}
+	}
 \end{frame}
 
 \begin{frame}{Shape recognition}
+
+	\visible<1->{
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=0.4]{files/shape-recognition.png}
+			\caption{Shape recognition principle  (Graphic by Knoll \& De Freitas)}
+		\end{figure}
+	}
+
+\end{frame}
+
+\begin{frame}{Shape recognition}
+
+	\visible<1->{
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=0.45]{files/shape-recognition-comparison.png}
+			\caption{Shape recognition comparison  (Graphic by Knoll \& De Freitas)}
+		\end{figure}
+	}
 
 \end{frame}
 
 \begin{frame}{Lossy compression}
 
+	\visible<1->{
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=0.4]{files/picture_compression.png}
+			\caption{Picture compression comparison  (Graphic by Knoll \& De Freitas)}
+		\end{figure}
+		\centering
+		\begin{tabular}{l|l}
+		Upper-Left: uncompressed & Upper-Right: compressed by paq8\\ \hline
+		Bottom-Left: JPEG & Bottom-Right: JPEG2000
+		\end{tabular}
+
+	}
+
 \end{frame}
 
 \section{References}
 
+\begin{frame}{References}
 
+\begin{itemize}
+	\item \textit{A Machine Learning Perspective on Predictive Coding with PAQ}, Byron Knoll \& Nando de Freitas,
+	2019/08/17
+	\item https://stackoverflow.com/questions/41990250/what-is-cross-entropy
+	\item http://mattmahoney.net/
+	\item https://www.techopedia.com/definition/33264/hidden-layer-neural-networks
+	\item \textit{Handbook of Datacompression}, 5th Edition, Springer
+\end{itemize}
+
+\end{frame}
 
 
 
