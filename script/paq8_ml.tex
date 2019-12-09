@@ -92,9 +92,9 @@
 			\item Related to PPM, is envisioned as PPMs improvement
 		\end{itemize}
 	\end{alertblock}
-\end{frame}
-
-	\begin{exampleblock}{Matt Mahoney}<2->
+	
+		\visible<2->{
+	\begin{exampleblock}{Matt Mahoney}
 	\begin{minipage}[b]{0.70\linewidth}
 		\begin{itemize}
 			\item Born 1955
@@ -107,6 +107,11 @@
 		\includegraphics[scale=1.5]{files/matt.jpg}
 	\end{minipage}
 	\end{exampleblock}
+	}
+\end{frame}
+
+
+
 
 \begin{frame}{Introduction to PAQ}
 	\begin{exampleblock}{Principles of PAQ}
@@ -133,7 +138,6 @@
 	The sparse context predictor
 		\begin{itemize}
 			\item 	Context consists of a specific amount of non-contiguous bytes before the current bit
-			\item Useful for some binary files 
 		\end{itemize}
 		}
 		
@@ -141,8 +145,6 @@
 	Whole word order-$n$ context
 		\begin{itemize}
 			\item Context is the latest $n$ whole words
-			\item Non-alphabetical characters are ignored and upper- or lower case letters are viewed as the same
-			\item Very useful for text files
 		\end{itemize}
 	}
 	\end{block}
@@ -191,7 +193,7 @@
 	\begin{exampleblock}{Architecture of PAQ8}<1->
 		\begin{itemize}
 			\item Uses weighted combination of predictions from Large number of models
-			\item Allows no-contiguous context matches
+			\item Allows non-contiguous context matches
 			\item paq8l uses \textbf{552} prediciton models
 			\item Combines the output of them into a single one\\
 			$\hookrightarrow$ Passes this through an \textit{adaptive probability map} (APM) before using the arithmetic coder
@@ -334,9 +336,8 @@
 \begin{frame}{Model Mixer}
 	\begin{block}{Node selection}
 		\begin{itemize}
-			\item Sets 1,2,4 and 6 choose node based on single byte in context\\
-			$\hookrightarrow$ 256 nodes per set
-			\item Set 1 has additional byte $\rightarrow$ 264 nodes
+			\item Sets 1,2,4 and 5 choose node based on single byte in context
+			\item Set 6 chooses based on length of longest context matched
 			\item Sets 3 and 7 use combination of several bytes
 			\item Depending on the context, a specific node is selected
 		\end{itemize}
@@ -345,7 +346,7 @@
 	\visible<2->{
 	\begin{exampleblock}{Mixtures of Experts}
 		\begin{itemize}
-			\item Technique published by \textit{Jacobs et al.}
+			\item Technique published by \textit{Jacobs et al. 1991}
 			\item Used for neural network training
 			\item Requires a gating network to select expert model
 		\end{itemize}
@@ -381,8 +382,7 @@
 	\begin{alertblock}{Classification procedures}
 		\begin{itemize}
 			\item \textbf{SMDL} $\rightarrow$ uses differences between test dictionary and result dictionary
-			\item \textbf{AMDL} $\rightarrow$ uses difference between compressed file sizes (training files \& test file)
-			\item \textbf{BCN} $\rightarrow$ uses difference between compressed file sizes (training file \& test file)
+			\item \textbf{AMDL \& BCN} $\rightarrow$ uses difference between compressed file sizes (training files \& test file)
 		\end{itemize}
 	\end{alertblock}	
 	} 
@@ -450,13 +450,15 @@
 	\visible<1->{
 		\begin{figure}[H]
 			\centering
-			\includegraphics[scale=0.4]{files/picture_compression.png}
+			\includegraphics[scale=0.3]{files/picture_compression.png}
 			\caption{Picture compression comparison  (Graphic by Knoll \& De Freitas)}
 		\end{figure}
 		\centering
 		\begin{tabular}{l|l}
-		Upper-Left: uncompressed & Upper-Right: compressed by paq8\\ \hline
-		Bottom-Left: JPEG & Bottom-Right: JPEG2000
+		Upper-Left: uncompressed & Upper-Right: compressed by paq8\\ 
+		700x525 pixel & 4083 bytes\\\hline
+		Bottom-Left: JPEG & Bottom-Right: JPEG2000 \\
+		16783 bytes & 4097 bytes
 		\end{tabular}
 
 	}
